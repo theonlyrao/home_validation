@@ -18,7 +18,7 @@ RSpec.feature "LandlordCanValidateHomes", type: :feature do
       ApplicationController.any_instance.stubs(:current_user).returns(landlord)
       visit validation_path
       within ".address_submission" do
-        fill_in "Address 1", with: "1510 Blake St"
+        fill_in "Address_1", with: "1510 Blake St"
         fill_in "State", with: "CO"
         fill_in "Zip", with: "80202"
       end
