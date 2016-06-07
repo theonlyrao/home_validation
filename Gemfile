@@ -31,10 +31,24 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem "figaro"
+gem "faraday"
+gem 'active_model_serializers', github: "rails-api/active_model_serializers"
+gem 'responders'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.4'
+  gem "vcr"
+  gem "simplecov", require: false
+  gem 'database_cleaner'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem "factory_girl_rails", "~> 4.0"  
+  gem "capybara"
+  gem "launchy"
+  gem "webmock"
+  gem "mocha"
 end
 
 group :development do
