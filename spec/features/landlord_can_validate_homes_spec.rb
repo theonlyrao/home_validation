@@ -15,7 +15,7 @@ RSpec.feature "LandlordCanValidateHomes", type: :feature do
 # the picture I uploaded,
       # and the metadata associated with that photo.
       landlord = create(:user)
-      ApplicationController.any_instance.stubs(current_user).returns(landlord)
+      ApplicationController.any_instance.stubs(:current_user).returns(landlord)
       visit validation_path
       within ".address_submission" do
         fill_in "Address 1", with: "1510 Blake St"
