@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: home_validation_production
-  username: home_validation
-  password: <%= ENV['HOME_VALIDATION_DATABASE_PASSWORD'] %>
