@@ -4,6 +4,8 @@ RSpec.describe Home, type: :model do
   it { should validate_presence_of(:address_1) }
   it { should validate_presence_of(:city) }
   it { should validate_presence_of(:zip) }
+  it { should have_and_belong_to_many(:pictures) }
+  it { should have_many(:validations) }
 
   it "creates lat and long before saving in database" do
     VCR.use_cassette("model_home_lat_long") do

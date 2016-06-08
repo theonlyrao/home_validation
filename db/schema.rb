@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607224709) do
+ActiveRecord::Schema.define(version: 20160608130959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,21 @@ ActiveRecord::Schema.define(version: 20160607224709) do
     t.string "long"
   end
 
+  create_table "homes_pictures", id: false, force: :cascade do |t|
+    t.integer "home_id"
+    t.integer "picture_id"
+  end
+
+  add_index "homes_pictures", ["home_id"], name: "index_homes_pictures_on_home_id", using: :btree
+  add_index "homes_pictures", ["picture_id"], name: "index_homes_pictures_on_picture_id", using: :btree
+
+  create_table "pictures", force: :cascade do |t|
+    t.string "picture"
+    t.string "lat"
+    t.string "long"
+    t.string "picture_file_name"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
   end
@@ -40,6 +55,8 @@ ActiveRecord::Schema.define(version: 20160607224709) do
   add_index "validations", ["home_id"], name: "index_validations_on_home_id", using: :btree
   add_index "validations", ["user_id"], name: "index_validations_on_user_id", using: :btree
 
+  add_foreign_key "homes_pictures", "homes"
+  add_foreign_key "homes_pictures", "pictures"
   add_foreign_key "validations", "homes"
   add_foreign_key "validations", "users"
 end

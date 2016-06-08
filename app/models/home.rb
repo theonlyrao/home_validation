@@ -1,4 +1,6 @@
 class Home < ActiveRecord::Base
+  has_and_belongs_to_many :pictures
+  has_many :validations
   validates_presence_of :address_1, :city, :zip
   after_save :create_lat_and_long
 
