@@ -1,0 +1,35 @@
+<h1>Homes New Page</h1>
+
+<div class="address_submission">
+<%= form_for @home do |f| %>
+    Address:
+    <ul>
+	<%= f.fields_for :home do |home_form| %>
+	    <%= home_form.label :address_1%>
+	    <%= home_form.text_field :address_1, value: "Address 1"%>
+
+	    <%= home_form.label :city%>
+	    <%= home_form.text_field :city, value: "City"%>
+
+	    <%= home_form.label :state %>
+	    <%= home_form.text_field :state, value: "State" %>
+
+	    <%= home_form.label :zip %>
+	    <%= home_form.text_field :zip, value: "Zip" %>
+	<% end  %>
+    </ul>
+    Photo Lat and Long:
+    <ul>
+	<%= f.fields_for :pictures do |picture_form| %>
+	    <li>
+		<%= picture_form.label :lat %>
+		<%= picture_form.text_field :lat, value: "Lat" %>
+		
+		<%= picture_form.label :long %>
+		<%= picture_form.text_field :long, value: "Long" %>
+	    </li>
+	<% end %>
+    </ul>
+    <%= f.submit "Validate" %>
+<% end %>
+</div>

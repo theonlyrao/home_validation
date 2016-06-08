@@ -1,9 +1,14 @@
-class ValidationController < ApplicationController
+class ValidationsController < ApplicationController
 
+  def show
+    @validation = Validation.find(params[:id])
+  end
+  
   def new
     @validation = Validation.new
-    @home = Home.new
-    @picture = Picture.new
+    @validation.build_home
+    @validation.pictures.build
+
   end
 
   def create

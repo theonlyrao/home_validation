@@ -4,6 +4,9 @@ class Home < ActiveRecord::Base
   validates_presence_of :address_1, :city, :zip
   after_save :create_lat_and_long
 
+  accepts_nested_attributes_for :validations
+  accepts_nested_attributes_for :pictures
+  
   def create_lat_and_long
     street = self.address_1.split.join("+")
     city = self.city.split.join("+")
