@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get "/validate", to: "validation#new", as: :validation
+  post "/validate", to: "validation#create", as: :validation_homes
+  #resources :validations, only: [:create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

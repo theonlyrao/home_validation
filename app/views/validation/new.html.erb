@@ -1,8 +1,8 @@
 <h1>Validation New Page</h1>
 
 <div class="address_submission">
-    <%= form_for @validation do |f| %>
-	<%= f.label :address_1 %>:
+    <%= form_for([@validation, @home]) do |f| %>
+	<%= f.label :address_1, value = "Address 1" %>:
 	<%= f.text_field :address_1 %>
 
 	<%= f.label :state %>:

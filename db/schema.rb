@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607125515) do
+ActiveRecord::Schema.define(version: 20160607224709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,4 +31,15 @@ ActiveRecord::Schema.define(version: 20160607125515) do
     t.string "username"
   end
 
+  create_table "validations", force: :cascade do |t|
+    t.integer "home_id"
+    t.integer "user_id"
+    t.boolean "validated"
+  end
+
+  add_index "validations", ["home_id"], name: "index_validations_on_home_id", using: :btree
+  add_index "validations", ["user_id"], name: "index_validations_on_user_id", using: :btree
+
+  add_foreign_key "validations", "homes"
+  add_foreign_key "validations", "users"
 end
