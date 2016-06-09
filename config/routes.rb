@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get "/validate", to: "homes#new"
+  get "/", to: "welcome#show", as: :root
+  
+  get "/validate", to: "homes#new", as: :validation
   post "/validate", to: "homes#create", as: :homes
 
   get "/validations/:id", to: "validations#show", as: :validation_show
