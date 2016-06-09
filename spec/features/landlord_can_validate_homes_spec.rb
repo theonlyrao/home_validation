@@ -6,7 +6,7 @@ RSpec.feature "LandlordCanValidateHomes", type: :feature do
     VCR.use_cassette "feature_validation_iteration_1" do
       landlord = create(:user)
       ApplicationController.any_instance.stubs(:current_user).returns(landlord)
-      visit validate_path
+      visit validation_path
       within ".address_submission" do
         fill_in "Address 1", with: "1510 Blake St"
         fill_in "City", with: "Denver"
