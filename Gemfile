@@ -33,6 +33,8 @@ gem "figaro"
 gem "faraday"
 gem 'active_model_serializers', github: "rails-api/active_model_serializers"
 gem 'responders'
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem 'aws-sdk', '~> 1.6'
 
 group :production do
   gem "rails_12factor"
