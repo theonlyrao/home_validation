@@ -6,17 +6,20 @@ class Home < ActiveRecord::Base
   accepts_nested_attributes_for :validations
   accepts_nested_attributes_for :pictures
   
-  def create_lat_and_long
+  def create_lat_and_long(mapping_service=GmapsService.new)
+    address_args = self.parse_address
+    lat_and_long = mapping_service.get_lat_and_long(address_args)
+    self.lat = lat_and_long[:lat].to_s
+    self.long = lat_and_long[:long].to_s
+    self.save
+  end
+
+  def parse_address
     street = self.address_1.split.join("+")
     city = self.city.split.join("+")
     state = self.state
     zip = self.zip.split
-    conn = Faraday.new("https://maps.googleapis.com/maps/api/geocode/")
-    response = conn.get("json?address=#{street},#{city},#{state},#{zip}&key=#{Pusher.gmaps_js_api}")
-    parsed = JSON.parse(response.body)
-    self.lat = parsed["results"].first["geometry"]["location"]["lat"].to_s
-    self.long = parsed["results"].first["geometry"]["location"]["lng"].to_s
-    self.save
+    { street: street, city: city, state: state, zip: zip }
   end
   
 end
