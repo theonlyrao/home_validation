@@ -16,7 +16,6 @@ class ValidationsController < ApplicationController
     @picture = Picture.new(picture: validation_params[:picture], home_id: @home.id)
     current_user = User.new
     @validation = Validation.new(home_id: @home.id, user_id: current_user.id)
-    byebug
   end
 
   private

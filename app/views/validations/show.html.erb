@@ -1,3 +1,22 @@
 <p>Validatons Show Page </p>
 
 <h1><% if @validation.validated == true %>Home Validated<% end %></h1>
+
+<div class="address_report">
+    <p>Information on the home you just submitted for validation</p>
+    <ul>
+	<li><%= @validation.home.address_1 %></li>
+	<li><%= @validation.home.state %></li>
+	<li><%= @validation.home.zip %></li>
+	<li><%= @validation.home.lat %></li>
+	<li><%= @validation.home.long %></li>
+    </ul>
+</div>
+
+<div class="metadata">
+    <ul>
+    <% @validation.pictures.each do |photo| %>
+	<li><%= photo.lat %>, <%= photo.long %></li>
+    <% end %>
+    </ul>
+</div>

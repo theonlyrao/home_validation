@@ -17,6 +17,7 @@ RSpec.feature "LandlordCanValidateHomes", type: :feature do
       end
       click_on "Validate"
       expect(current_path).to eq("/validations/#{Validation.last.id}")
+      save_and_open_page
       within "h1" do
         expect(page).to have_content("Home Validated")
       end
