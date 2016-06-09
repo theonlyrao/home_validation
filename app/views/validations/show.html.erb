@@ -1,6 +1,12 @@
 <p>Validatons Show Page </p>
 
-<h1><% if @validation.validated? %>Home Validated<% end %></h1>
+<h1>
+  <% if @validation.validated? %>
+  Home Validated
+  <% else %>
+  Home Not Valid
+  <% end %>
+</h1>
 
 <div class="address_report">
     <p>Information on the home you just submitted for validation</p>
