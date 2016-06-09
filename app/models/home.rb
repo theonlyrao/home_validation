@@ -2,7 +2,6 @@ class Home < ActiveRecord::Base
   has_and_belongs_to_many :pictures
   has_many :validations
   validates_presence_of :address_1, :city, :zip
-  after_create :create_lat_and_long
 
   accepts_nested_attributes_for :validations
   accepts_nested_attributes_for :pictures

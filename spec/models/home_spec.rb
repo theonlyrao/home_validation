@@ -9,9 +9,8 @@ RSpec.describe Home, type: :model do
 
   it "creates lat and long before saving in database" do
     VCR.use_cassette("model_home_lat_long") do
-      turing = Home.new(address_1: "1510 Blake Street", city: "Denver", zip: "80202")
-      result = turing.save
-      expect(result).to eq(true)
+      turing = Home.create(address_1: "1510 Blake Street", city: "Denver", zip: "80202")
+      turing.create_lat_and_long
       expect(turing.lat).to eq("39.7496354")
       expect(turing.long).to eq("-105.0001058")
     end

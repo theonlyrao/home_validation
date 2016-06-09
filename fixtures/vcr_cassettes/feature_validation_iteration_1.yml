@@ -17,9 +17,9 @@ http_interactions:
       content-type:
       - application/json; charset=UTF-8
       date:
-      - Thu, 09 Jun 2016 01:22:55 GMT
+      - Thu, 09 Jun 2016 01:52:37 GMT
       expires:
-      - Fri, 10 Jun 2016 01:22:55 GMT
+      - Fri, 10 Jun 2016 01:52:37 GMT
       cache-control:
       - public, max-age=86400
       vary:
@@ -113,5 +113,119 @@ http_interactions:
            "status" : "OK"
         }
     http_version: 
-  recorded_at: Thu, 09 Jun 2016 01:22:55 GMT
+  recorded_at: Thu, 09 Jun 2016 01:52:37 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=1510+Blake+St%2CDenver%2CCO%2C%5B%2280202%22%5D&key=AIzaSyCY5n5pb4MT_HYRFMlXUJTqM_Oe_ifEAus
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Thu, 09 Jun 2016 01:52:37 GMT
+      expires:
+      - Fri, 10 Jun 2016 01:52:37 GMT
+      cache-control:
+      - public, max-age=86400
+      vary:
+      - Accept-Language
+      access-control-allow-origin:
+      - "*"
+      server:
+      - mafe
+      x-xss-protection:
+      - 1; mode=block
+      x-frame-options:
+      - SAMEORIGIN
+      alternate-protocol:
+      - 443:quic
+      alt-svc:
+      - quic=":443"; ma=2592000; v="34,33,32,31,30,29,28,27,26,25"
+      connection:
+      - close
+      transfer-encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "1510",
+                       "short_name" : "1510",
+                       "types" : [ "street_number" ]
+                    },
+                    {
+                       "long_name" : "Blake Street",
+                       "short_name" : "Blake St",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "LoDo",
+                       "short_name" : "LoDo",
+                       "types" : [ "neighborhood", "political" ]
+                    },
+                    {
+                       "long_name" : "Denver",
+                       "short_name" : "Denver",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Denver County",
+                       "short_name" : "Denver County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "Colorado",
+                       "short_name" : "CO",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    },
+                    {
+                       "long_name" : "80202",
+                       "short_name" : "80202",
+                       "types" : [ "postal_code" ]
+                    }
+                 ],
+                 "formatted_address" : "1510 Blake St, Denver, CO 80202, USA",
+                 "geometry" : {
+                    "location" : {
+                       "lat" : 39.7496354,
+                       "lng" : -105.0001058
+                    },
+                    "location_type" : "ROOFTOP",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 39.75098438029149,
+                          "lng" : -104.9987568197085
+                       },
+                       "southwest" : {
+                          "lat" : 39.74828641970849,
+                          "lng" : -105.0014547802915
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJq7eg-cR4bIcRnuNXt5uiEvc",
+                 "types" : [ "street_address" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Thu, 09 Jun 2016 01:52:37 GMT
 recorded_with: VCR 3.0.3

@@ -7,9 +7,12 @@ class HomesController < ApplicationController
 
   def create
     @home = Home.create(validation_params[:home])
+    @home.create_lat_and_long
     @picture = Picture.create(lat: validation_params[:pictures_attributes]["0"]["lat"], long: validation_params[:pictures_attributes]["0"]["long"])
     @picture.homes << @home
-    @validation = Validation.create(home_id: @home.id, validated: true)
+    @validation = Validation.create(home_id: @home.id)
+    @validation.validated = @validation.check_gps
+    @validation.save
     redirect_to validation_show_path(@validation.id)
   end
 
