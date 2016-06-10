@@ -13,6 +13,7 @@ module Creator
   end
 
   def self.make_picture(home, gps)
+    byebug
     picture = Picture.create(lat: gps["lat"], long: gps["long"])
     picture.homes << home                              
   end

@@ -34,8 +34,9 @@ gem "faraday"
 gem 'active_model_serializers', github: "rails-api/active_model_serializers"
 gem 'responders'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
-gem 'aws-sdk', '~> 1.6'
+gem 'aws-sdk', '~> 2.3'
 gem "bootstrap", "~> 4.0.0.alpha3"
+gem 'exifr', :git => 'git://github.com/remvee/exifr.git'
 
 group :production do
   gem "rails_12factor"

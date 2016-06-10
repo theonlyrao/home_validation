@@ -12,7 +12,6 @@
     </div>
     
     <div class="address-submission">
-	<form>
 	    <div class="content-box address-form ">
 	    <%= form_for @home do |f| %>
 		<%= f.fields_for :home do |home_form| %>
@@ -34,23 +33,12 @@
 		    </fieldset>
 		<% end  %>
 		<%= f.fields_for :pictures do |picture_form| %>
-		    <fieldset class="form-group">
-			<label for="exampleInputFile">File input</label>
-			<input type="file" class="form-control-file" id="exampleInputFile">
-			<small class="text-muted">Attach a photo of your home from within your home. Make sure that you use a gps enabled camera, like your smartphone.</small>
-		    </fieldset>
-		    <fieldset class="form-group">		    
-			<%= picture_form.label :lat %>
-			<%= picture_form.text_field :lat, value: "Lat", class: "form-control" %>
-		    </fieldset>
-		    <fieldset class="form-group">		    
-			<%= picture_form.label :long %>
-			<%= picture_form.text_field :long, value: "Long", class: "form-control" %>
-		    </fieldset>
+		<fieldset class="form-group field">
+		  <%= picture_form.file_field :picture %>
+		</fieldset>
 		<% end %>
 		<%= f.submit "Validate", class: "btn btn-primary" %>
 	    <% end %>
 	    </div> <!-- content-box -->
-	</form>
     </div> <!-- address-submission -->
 </div> <!-- home-new-page -->
