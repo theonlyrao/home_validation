@@ -13,7 +13,6 @@ class HomesController < ApplicationController
   private
 
   def validation_params
-    byebug
     params.require(:home).permit(home: [:address_1, :city, :state, :zip], pictures_attributes: [:lat, :long] )
     # file = params["home"]["pictures_attributes"]["0"]["picture"].tempfile
     # gps = EXIFR::JPEG.new(file).gps
