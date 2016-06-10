@@ -15,3 +15,37 @@
  */
 
 @import "bootstrap";
+
+.validation-header {
+    height: 75px;
+    padding-top: 13px;
+    border: 1px solid black;
+    background-color: gray;
+}
+
+.validated {
+    color: green;
+}
+
+.not-validated {
+    color: red;
+}
+
+.content-box {
+    height: 300px;
+    border: 1px solid black;
+    margin-top: 10px;
+}
+
+.address-report {
+    margin-left: 10px;
+}
+
+.picture-slider {
+    height: 400px;
+    background-color: gray;
+}
+
+.metadata {
+    margin-bottom: 25px;
+}
