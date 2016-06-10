@@ -7,7 +7,7 @@ RSpec.feature "LandlordCanValidateHomes", type: :feature do
       landlord = create(:user)
       ApplicationController.any_instance.stubs(:current_user).returns(landlord)
       visit validation_path
-      within ".address_submission" do
+      within ".address-submission" do
         fill_in "Address 1", with: "1510 Blake St"
         fill_in "City", with: "Denver"
         fill_in "State", with: "CO"
@@ -20,7 +20,7 @@ RSpec.feature "LandlordCanValidateHomes", type: :feature do
       within "h1" do
         expect(page).to have_content("Home Validated")
       end
-      within ".address_report" do
+      within ".address-report" do
         expect(page).to have_content("1510 Blake St")
         expect(page).to have_content("CO")
         expect(page).to have_content("80202")
@@ -39,7 +39,7 @@ RSpec.feature "LandlordCanValidateHomes", type: :feature do
       landlord = create(:user)
       ApplicationController.any_instance.stubs(:current_user).returns(landlord)
       visit validation_path
-      within ".address_submission" do
+      within ".address-submission" do
         fill_in "Address 1", with: "1510 Blake St"
         fill_in "City", with: "Denver"
         fill_in "State", with: "CO"
@@ -52,7 +52,7 @@ RSpec.feature "LandlordCanValidateHomes", type: :feature do
       within "h1" do
         expect(page).to have_content("Home Not Valid")
       end
-      within ".address_report" do
+      within ".address-report" do
         expect(page).to have_content("1510 Blake St")
         expect(page).to have_content("CO")
         expect(page).to have_content("80202")
