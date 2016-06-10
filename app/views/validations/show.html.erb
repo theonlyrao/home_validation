@@ -1,28 +1,47 @@
-<p>Validatons Show Page </p>
+<div class="validation-show-page">
+    <div class="row">
+	<h1 class="page-title text-md-center">
+	    <% if @validation.validated? %>
+		<div class="validated">Home Validated</div>
+	    <% else %>
+		<div class="not-validated">Home Not Valid</div>
+	    <% end %>
+	</h1>
+    </div> <!-- row -->
+    
+    <div class="row">
+	<div class="content-box-container">
+	    <div class="content-box featured-image col-md-4 col-md-offset-2">
+	    </div> <!-- featured-image -->
+	    
+	    <div class="content-box address-report col-md-4">
+		<p>Address Information</p>
+		<ul>
+		    <li>Address 1: <%= @validation.home.address_1 %></li>
+		    <li>State: <%= @validation.home.state %></li>
+		    <li>Zip: <%= @validation.home.zip %></li>
+		    <li>Calculated Latitude: <%= @validation.home.lat %></li>
+		    <li>Calculated Longitude: <%= @validation.home.long %></li>
+		</ul>
+	    </div> <!-- address-report -->
+	</div> <!-- content-box-container -->
+    </div> <!-- row -->
 
-<h1>
-  <% if @validation.validated? %>
-  Home Validated
-  <% else %>
-  Home Not Valid
-  <% end %>
-</h1>
+    <div class="row">
+	<div class="content-box picture-slider">
+	    
+	</div> <!-- picture-slider -->
+    </div> <!-- row -->
 
-<div class="address_report">
-    <p>Information on the home you just submitted for validation</p>
-    <ul>
-	<li><%= @validation.home.address_1 %></li>
-	<li><%= @validation.home.state %></li>
-	<li><%= @validation.home.zip %></li>
-	<li><%= @validation.home.lat %></li>
-	<li><%= @validation.home.long %></li>
-    </ul>
-</div>
-
-<div class="metadata">
-    <ul>
-    <% @validation.pictures.each do |photo| %>
-	<li><%= photo.lat %>, <%= photo.long %></li>
-    <% end %>
-    </ul>
-</div>
+    <div class="row">
+	<div class="content-box metadata col-md-6 col-md-offset-3">
+	    <p>Photo Metadata Information</p>
+	    <ul>
+		<% @validation.pictures.each do |photo| %>
+		    <li>Photo Latitude: <%= photo.lat %></li>
+		    <li>Photo Longitude: <%= photo.long %></li>
+		<% end %>
+	    </ul>
+	</div> <!-- metadata -->
+    </div> <!-- row -->
+</div> <!-- show-page -->
