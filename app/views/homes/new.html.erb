@@ -1,35 +1,56 @@
-<h1>Homes New Page</h1>
+<div class="home-new-page">
+    <div class="row">
+	<h1 class="page-title text-md-center">Validate Your Home's Listing</h1>
+    </div> <!-- row -->
 
-<div class="address_submission">
-<%= form_for @home do |f| %>
-    Address:
-    <ul>
-	<%= f.fields_for :home do |home_form| %>
-	    <%= home_form.label :address_1%>
-	    <%= home_form.text_field :address_1, value: "Address 1"%>
-
-	    <%= home_form.label :city%>
-	    <%= home_form.text_field :city, value: "City"%>
-
-	    <%= home_form.label :state %>
-	    <%= home_form.text_field :state, value: "State" %>
-
-	    <%= home_form.label :zip %>
-	    <%= home_form.text_field :zip, value: "Zip" %>
-	<% end  %>
-    </ul>
-    Photo Lat and Long:
-    <ul>
-	<%= f.fields_for :pictures do |picture_form| %>
-	    <li>
-		<%= picture_form.label :lat %>
-		<%= picture_form.text_field :lat, value: "Lat" %>
-		
-		<%= picture_form.label :long %>
-		<%= picture_form.text_field :long, value: "Long" %>
-	    </li>
-	<% end %>
-    </ul>
-    <%= f.submit "Validate" %>
-<% end %>
-</div>
+    <div class="row">
+	<div class="card card-inverse card-info col-md-12">
+	    <div class="card-block">
+		<p class="card-text">Enter the address information for the home you want to validate. Then attached the picture you are going to post with the listing for that home. Make sure you enable the gps metadata on the phone taking the picture and take the picture inside or very near the home you are validating.</p>
+	    </div>
+	</div>
+    </div>
+    
+    <div class="address-submission">
+	<form>
+	    <div class="content-box address-form ">
+	    <%= form_for @home do |f| %>
+		<%= f.fields_for :home do |home_form| %>
+		    <fieldset class="form-group">
+			<%= home_form.label :address_1%>
+			<%= home_form.text_field :address_1, value: "Address 1", class: "form-control"%>
+		    </fieldset>
+		    <fieldset class="form-group">		    
+			<%= home_form.label :city%>
+			<%= home_form.text_field :city, value: "City", class: "form-control"%>
+		    </fieldset>
+		    <fieldset class="form-group">
+			<%= home_form.label :state %>
+			<%= home_form.text_field :state, value: "State", class: "form-control" %>
+		    </fieldset>
+		    <fieldset class="form-group">
+			<%= home_form.label :zip %>
+			<%= home_form.text_field :zip, value: "Zip", class: "form-control" %>
+		    </fieldset>
+		<% end  %>
+		<%= f.fields_for :pictures do |picture_form| %>
+		    <fieldset class="form-group">
+			<label for="exampleInputFile">File input</label>
+			<input type="file" class="form-control-file" id="exampleInputFile">
+			<small class="text-muted">Attach a photo of your home from within your home. Make sure that you use a gps enabled camera, like your smartphone.</small>
+		    </fieldset>
+		    <fieldset class="form-group">		    
+			<%= picture_form.label :lat %>
+			<%= picture_form.text_field :lat, value: "Lat", class: "form-control" %>
+		    </fieldset>
+		    <fieldset class="form-group">		    
+			<%= picture_form.label :long %>
+			<%= picture_form.text_field :long, value: "Long", class: "form-control" %>
+		    </fieldset>
+		<% end %>
+		<%= f.submit "Validate", class: "btn btn-primary" %>
+	    <% end %>
+	    </div> <!-- content-box -->
+	</form>
+    </div> <!-- address-submission -->
+</div> <!-- home-new-page -->
