@@ -33,4 +33,13 @@ RSpec.describe HomesController, type: :controller do
       expect(flash[:error]).to be_present
     end
   end
+
+    it "can handle submission with good input" do
+    VCR.use_cassette "controller_with_good_input" do
+      post :create, home: {home: {address_1: "1510 Blake Street", city: "Denver", state: "CO", zip: "80202"}, pictures_attributes: {"0" => {picture: Rack::Test::UploadedFile.new(File.join(ActionController::TestCase.fixture_path, 'turing3.jpg'), 'image/jpeg')}}}
+      expect(flash[:error]).not_to be_present
+      assert_redirected_to validation_show_path(Validation.last.id)
+    end
+  end
+
 end

@@ -13,8 +13,9 @@ class HomesController < ApplicationController
       render :new
       flash.now[:error] = "Please make sure your picture has gps metadata."
     else
-      raw_picture = params[:home][:pictures_attributes]["0"][:picture]
-      validation = Creator.build(validation_params[:home], raw_picture)
+      #raw_picture = params[:home][:pictures_attributes]["0"][:picture]
+      #validation = Creator.build(validation_params[:home], raw_picture)]
+      validation = Creator.build(validation_params[:home], Picture.raw_picture)
       redirect_to validation_show_path(validation.id)
     end
   end

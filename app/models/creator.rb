@@ -14,9 +14,11 @@ module Creator
   end
 
   def self.make_picture(home, raw_picture)
-    file = raw_picture.tempfile
-    gps = EXIFR::JPEG.new(file).gps
-    picture = Picture.create(picture: raw_picture, lat: gps.latitude, long: gps.longitude, picture_file_name: "http://home-validation.s3.amazonaws.com/#{raw_picture.original_filename}")
+    #file = raw_picture.tempfile
+    #gps = EXIFR::JPEG.new(file).gps
+    lat = Picture.gps.latitude
+    long = Picture.gps.longitude
+    picture = Picture.create(picture: raw_picture, lat: lat, long: long, picture_file_name: "http://home-validation.s3.amazonaws.com/#{raw_picture.original_filename}")
     picture.homes << home
   end
 
