@@ -66,7 +66,7 @@ RSpec.feature "LandlordCanValidateHomes", type: :feature do
     end
   end
 
-  xscenario "landlord is logged in do" do
+  scenario "landlord is logged in do" do
     VCR.use_cassette "feature_landlord_one_home" do
 # As a logged in landlord,
 # when I go to /validate,
@@ -81,7 +81,7 @@ RSpec.feature "LandlordCanValidateHomes", type: :feature do
       landlord = create(:user)
       ApplicationController.any_instance.stubs(:current_user).returns(landlord)
       visit validation_path
-      within ".address_submission" do
+      within ".address-form" do
         fill_in "Address 1", with: "1510 Blake St"
         fill_in "State", with: "CO"
         fill_in "Zip", with: "80202"
@@ -89,19 +89,7 @@ RSpec.feature "LandlordCanValidateHomes", type: :feature do
       #page.attach_file("Upload Picture", "make up file path")
       #image = fixture_file_upload "android2.jpg"
       click_on "Validate"
-      expect(current_path).to eq("/homes/#{Home.last.id}")
-      within "h1" do
-        expect(page).to have_content("Home Validated")
-      end
-      within ".address_report" do
-        expect(page).to have_content("1510 Blake St")
-        expect(page).to have_content("CO")
-        expect(page).to have_content("80202")
-      end
-      within ".metadata" do
-        expect(page).to have_content("39°44'59.5\"N")
-        expect(page).to have_content("105°00'00.4\"W")
-      end
+      expect(current_path).to eq(validation_path)
     end
   end
 end

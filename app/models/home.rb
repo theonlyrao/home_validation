@@ -28,10 +28,3 @@ class Home < ActiveRecord::Base
   end
   
 end
-
-  # module HomeAddressParser
-
-  #   def parse_address
-  #   end
-
-  # end
