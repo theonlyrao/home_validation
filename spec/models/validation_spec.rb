@@ -18,8 +18,4 @@ RSpec.describe Validation, type: :model do
     expect(validation.check_gps).to eq(true)
   end
 
-  xit "knows an invalid validation request" do
-
-    expect(validation.validated?).to eq(false)
-  end
 end

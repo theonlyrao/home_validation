@@ -17,9 +17,9 @@ http_interactions:
       content-type:
       - application/json; charset=UTF-8
       date:
-      - Sat, 11 Jun 2016 20:01:33 GMT
+      - Sat, 11 Jun 2016 23:23:29 GMT
       expires:
-      - Sun, 12 Jun 2016 20:01:33 GMT
+      - Sun, 12 Jun 2016 23:23:29 GMT
       cache-control:
       - public, max-age=86400
       vary:
@@ -108,10 +108,10 @@ http_interactions:
            "status" : "OK"
         }
     http_version: 
-  recorded_at: Sat, 11 Jun 2016 20:01:33 GMT
+  recorded_at: Sat, 11 Jun 2016 23:23:29 GMT
 - request:
     method: get
-    uri: https://maps.googleapis.com/maps/api/geocode/json?address=1510+Blake+Street%2CDenver%2CCO%2C%5B%2280202%22%5D&key=AIzaSyCY5n5pb4MT_HYRFMlXUJTqM_Oe_ifEAus
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=%2CDenver%2CCO%2C80202&key=AIzaSyCY5n5pb4MT_HYRFMlXUJTqM_Oe_ifEAus
     body:
       encoding: US-ASCII
       string: ''
@@ -126,9 +126,9 @@ http_interactions:
       content-type:
       - application/json; charset=UTF-8
       date:
-      - Sat, 11 Jun 2016 20:01:34 GMT
+      - Sat, 11 Jun 2016 23:23:29 GMT
       expires:
-      - Sun, 12 Jun 2016 20:01:34 GMT
+      - Sun, 12 Jun 2016 23:23:29 GMT
       cache-control:
       - public, max-age=86400
       vary:
@@ -138,7 +138,7 @@ http_interactions:
       server:
       - mafe
       content-length:
-      - '539'
+      - '469'
       x-xss-protection:
       - 1; mode=block
       x-frame-options:
@@ -157,19 +157,9 @@ http_interactions:
               {
                  "address_components" : [
                     {
-                       "long_name" : "1510",
-                       "short_name" : "1510",
-                       "types" : [ "street_number" ]
-                    },
-                    {
-                       "long_name" : "Blake Street",
-                       "short_name" : "Blake St",
-                       "types" : [ "route" ]
-                    },
-                    {
-                       "long_name" : "LoDo",
-                       "short_name" : "LoDo",
-                       "types" : [ "neighborhood", "political" ]
+                       "long_name" : "80202",
+                       "short_name" : "80202",
+                       "types" : [ "postal_code" ]
                     },
                     {
                        "long_name" : "Denver",
@@ -190,37 +180,42 @@ http_interactions:
                        "long_name" : "United States",
                        "short_name" : "US",
                        "types" : [ "country", "political" ]
-                    },
-                    {
-                       "long_name" : "80202",
-                       "short_name" : "80202",
-                       "types" : [ "postal_code" ]
                     }
                  ],
-                 "formatted_address" : "1510 Blake St, Denver, CO 80202, USA",
+                 "formatted_address" : "Denver, CO 80202, USA",
                  "geometry" : {
-                    "location" : {
-                       "lat" : 39.7496354,
-                       "lng" : -105.0001058
-                    },
-                    "location_type" : "ROOFTOP",
-                    "viewport" : {
+                    "bounds" : {
                        "northeast" : {
-                          "lat" : 39.75098438029149,
-                          "lng" : -104.9987568197085
+                          "lat" : 39.76666780000001,
+                          "lng" : -104.986105
                        },
                        "southwest" : {
-                          "lat" : 39.74828641970849,
-                          "lng" : -105.0014547802915
+                          "lat" : 39.736849,
+                          "lng" : -105.012165
+                       }
+                    },
+                    "location" : {
+                       "lat" : 39.7541032,
+                       "lng" : -105.0002242
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 39.76666780000001,
+                          "lng" : -104.986105
+                       },
+                       "southwest" : {
+                          "lat" : 39.736849,
+                          "lng" : -105.012165
                        }
                     }
                  },
-                 "place_id" : "ChIJq7eg-cR4bIcRnuNXt5uiEvc",
-                 "types" : [ "street_address" ]
+                 "place_id" : "ChIJwTF6RcN4bIcRWd8aCrbRvX0",
+                 "types" : [ "postal_code" ]
               }
            ],
            "status" : "OK"
         }
     http_version: 
-  recorded_at: Sat, 11 Jun 2016 20:01:34 GMT
+  recorded_at: Sat, 11 Jun 2016 23:23:29 GMT
 recorded_with: VCR 3.0.3

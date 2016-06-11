@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Home, type: :model do
-  it { should validate_presence_of(:address_1) }
-  it { should validate_presence_of(:city) }
-  it { should validate_presence_of(:zip) }
+  it { should validate_presence_of(:address) }
   it { should have_and_belong_to_many(:pictures) }
   it { should have_many(:validations) }
 
@@ -26,8 +24,8 @@ RSpec.describe Home, type: :model do
   it "creates new home with complete gmaps address results" do
     VCR.use_cassette("model_home_with_complete_gmaps_results") do
       turing = Home.build_home(address_1: "1510 Blake Street", city: "Denver", zip: "80202")
-      expect(turing.lat).to eq("39.7496354")
-      expect(turing.long).to eq("-105.0001058")
+      expect(turing.lat).to eq("39.7541032")
+      expect(turing.long).to eq("-105.0002242")
       expect(turing.address).to eq("1510 Blake Street, Denver, CO, 80202, USA")
     end
   end
