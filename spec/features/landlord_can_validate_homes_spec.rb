@@ -2,7 +2,7 @@
 require 'rails_helper'
 
 RSpec.feature "LandlordCanValidateHomes", type: :feature do
-  scenario "first iteration - just enter the lat and long" do
+  xscenario "first iteration - just enter the lat and long" do
     VCR.use_cassette "feature_validation_iteration_1" do
       landlord = create(:user)
       ApplicationController.any_instance.stubs(:current_user).returns(landlord)
@@ -34,7 +34,7 @@ RSpec.feature "LandlordCanValidateHomes", type: :feature do
     end
   end
 
-    scenario "first iteration - bad photo info" do
+  xscenario "first iteration - bad photo info" do
     VCR.use_cassette "feature_validation_iteration_1_sad_path" do
       landlord = create(:user)
       ApplicationController.any_instance.stubs(:current_user).returns(landlord)
