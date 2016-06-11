@@ -7,4 +7,9 @@ class Picture < ActiveRecord::Base
   }
 
   validates_attachment_file_name :picture, :matches => [/png\Z/, /jpe?g\Z/]
+
+  def self.no_gps?(raw_picture)
+    file = raw_picture.tempfile
+    EXIFR::JPEG.new(file).gps.nil?
+  end
 end

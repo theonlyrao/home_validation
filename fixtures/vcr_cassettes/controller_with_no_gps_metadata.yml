@@ -1,0 +1,226 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=%2CDenver%2CCO%2C80212&key=AIzaSyCY5n5pb4MT_HYRFMlXUJTqM_Oe_ifEAus
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Sat, 11 Jun 2016 19:47:13 GMT
+      expires:
+      - Sun, 12 Jun 2016 19:47:13 GMT
+      cache-control:
+      - public, max-age=86400
+      vary:
+      - Accept-Language
+      access-control-allow-origin:
+      - "*"
+      server:
+      - mafe
+      content-length:
+      - '444'
+      x-xss-protection:
+      - 1; mode=block
+      x-frame-options:
+      - SAMEORIGIN
+      alternate-protocol:
+      - 443:quic
+      alt-svc:
+      - quic=":443"; ma=2592000; v="34,33,32,31,30,29,28,27,26,25"
+      connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "80212",
+                       "short_name" : "80212",
+                       "types" : [ "postal_code" ]
+                    },
+                    {
+                       "long_name" : "Denver",
+                       "short_name" : "Denver",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Colorado",
+                       "short_name" : "CO",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "Denver, CO 80212, USA",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 39.7988519,
+                          "lng" : -105.034574
+                       },
+                       "southwest" : {
+                          "lat" : 39.74395,
+                          "lng" : -105.0630589
+                       }
+                    },
+                    "location" : {
+                       "lat" : 39.7752563,
+                       "lng" : -105.0498966
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 39.7988519,
+                          "lng" : -105.034574
+                       },
+                       "southwest" : {
+                          "lat" : 39.74395,
+                          "lng" : -105.0630589
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJ_8fcE5yHa4cRfbPCIJjzidE",
+                 "types" : [ "postal_code" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Sat, 11 Jun 2016 19:47:13 GMT
+- request:
+    method: get
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=3937+Tennyson+St%2CDenver%2CCO%2C%5B%2280212%22%5D&key=AIzaSyCY5n5pb4MT_HYRFMlXUJTqM_Oe_ifEAus
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.2
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Sat, 11 Jun 2016 19:47:13 GMT
+      expires:
+      - Sun, 12 Jun 2016 19:47:13 GMT
+      cache-control:
+      - public, max-age=86400
+      vary:
+      - Accept-Language
+      access-control-allow-origin:
+      - "*"
+      server:
+      - mafe
+      content-length:
+      - '555'
+      x-xss-protection:
+      - 1; mode=block
+      x-frame-options:
+      - SAMEORIGIN
+      alternate-protocol:
+      - 443:quic
+      alt-svc:
+      - quic=":443"; ma=2592000; v="34,33,32,31,30,29,28,27,26,25"
+      connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "3937",
+                       "short_name" : "3937",
+                       "types" : [ "street_number" ]
+                    },
+                    {
+                       "long_name" : "Tennyson Street",
+                       "short_name" : "Tennyson St",
+                       "types" : [ "route" ]
+                    },
+                    {
+                       "long_name" : "Berkeley",
+                       "short_name" : "Berkeley",
+                       "types" : [ "neighborhood", "political" ]
+                    },
+                    {
+                       "long_name" : "Denver",
+                       "short_name" : "Denver",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "Denver County",
+                       "short_name" : "Denver County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "Colorado",
+                       "short_name" : "CO",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    },
+                    {
+                       "long_name" : "80212",
+                       "short_name" : "80212",
+                       "types" : [ "postal_code" ]
+                    },
+                    {
+                       "long_name" : "2113",
+                       "short_name" : "2113",
+                       "types" : [ "postal_code_suffix" ]
+                    }
+                 ],
+                 "formatted_address" : "3937 Tennyson St, Denver, CO 80212, USA",
+                 "geometry" : {
+                    "location" : {
+                       "lat" : 39.7718344,
+                       "lng" : -105.0441636
+                    },
+                    "location_type" : "ROOFTOP",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 39.7731833802915,
+                          "lng" : -105.0428146197085
+                       },
+                       "southwest" : {
+                          "lat" : 39.7704854197085,
+                          "lng" : -105.0455125802915
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJ2VqXTJ2Ha4cRtxmYjU9awyA",
+                 "types" : [ "street_address" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Sat, 11 Jun 2016 19:47:13 GMT
+recorded_with: VCR 3.0.3
