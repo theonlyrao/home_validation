@@ -7,8 +7,13 @@ class HomesController < ApplicationController
 
   def create
     raw_picture = params[:home][:pictures_attributes]["0"][:picture]
-    validation = Creator.build(validation_params[:home], raw_picture)
-    redirect_to validation_show_path(validation.id)
+    if Home.bad_address?(validation_params[:home] || {street: "", city: "", state: "", zip: ""})
+      render :new
+      flash.now[:error] = "Please check the address and make sure your picture has gps metadata."
+    else
+      validation = Creator.build(validation_params[:home], raw_picture)
+      redirect_to validation_show_path(validation.id)
+    end
   end
 
   private

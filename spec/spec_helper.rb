@@ -4,6 +4,7 @@ SimpleCov.start "rails"
 require "vcr"
 require "capybara/rspec"
 
+
 VCR.configure do |config|
   config.cassette_library_dir = "fixtures/vcr_cassettes"
   config.hook_into :webmock # or :fakeweb
@@ -29,6 +30,7 @@ end
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  #config.fixture_path =  "#{::Rails.root}/spec/fixtures"
   #config.include ActionDispatch::TestProcess
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

@@ -8,9 +8,13 @@ class GmapsService
   def get_lat_and_long(address)
     response = @conn.get("json?address=#{address[:street]},#{address[:city]},#{address[:state]},#{address[:zip]}&key=#{@key}")
     parsed = JSON.parse(response.body)
-    lat = parsed["results"].first["geometry"]["location"]["lat"]
-    long = parsed["results"].first["geometry"]["location"]["lng"]
-    { lat: lat, long: long }
+    if parsed["status"] == "ZERO_RESULTS"
+      { lat: nil, long: nil }
+    else
+      lat = parsed["results"].first["geometry"]["location"]["lat"]
+      long = parsed["results"].first["geometry"]["location"]["lng"]
+      { lat: lat, long: long }
+    end
   end
 
 end

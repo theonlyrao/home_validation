@@ -6,6 +6,11 @@ class Home < ActiveRecord::Base
   accepts_nested_attributes_for :validations
   accepts_nested_attributes_for :pictures
   
+  def self.bad_address?(raw_home, mapping_service=GmapsService.new)
+    lat_and_long = mapping_service.get_lat_and_long(raw_home)
+    lat_and_long.values.include?(nil)
+  end
+
   def create_lat_and_long(mapping_service=GmapsService.new)
     address_args = self.parse_address
     lat_and_long = mapping_service.get_lat_and_long(address_args)
@@ -15,11 +20,18 @@ class Home < ActiveRecord::Base
   end
 
   def parse_address
-    street = self.address_1.split.join("+")
-    city = self.city.split.join("+")
-    state = self.state
-    zip = self.zip.split
+    street = self.address_1.split.join("+") || nil
+    city = self.city.split.join("+") || nil
+    state = self.state || nil
+    zip = self.zip.split || nil
     { street: street, city: city, state: state, zip: zip }
   end
   
 end
+
+  # module HomeAddressParser
+
+  #   def parse_address
+  #   end
+
+  # end

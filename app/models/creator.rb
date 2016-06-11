@@ -7,8 +7,9 @@ module Creator
   end
 
   def self.make_home(raw_home)
-    home = Home.create(raw_home)
+    home = Home.new(raw_home)
     home.create_lat_and_long
+    home.save
     home
   end
 
