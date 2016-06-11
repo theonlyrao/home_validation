@@ -13,17 +13,9 @@ class Home < ActiveRecord::Base
 
   def self.build_home(raw_home, mapping_service=GmapsService.new)
     address_args = self.parse_address(raw_home)
-    home_info = mapping_service.get_mapped_info(raw_home)
+    home_info = mapping_service.get_mapped_info(address_args)
     self.create(home_info)
   end
-  
-  # def create_lat_and_long(mapping_service=GmapsService.new)
-  #   address_args = self.parse_address
-  #   lat_and_long = mapping_service.get_lat_and_long(address_args)
-  #   self.lat = lat_and_long[:lat].to_s
-  #   self.long = lat_and_long[:long].to_s
-  #   self.save
-  # end
 
   def self.parse_address(raw_home)
     street = raw_home[:address_1].split.join("+") || nil
