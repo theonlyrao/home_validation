@@ -17,3 +17,5 @@ coverage
 /config/application.yml
 /.byebug_history
 /public/assets
+public/system/pictures
+fixtures/vcr_cassettes
