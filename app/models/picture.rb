@@ -1,6 +1,6 @@
 class Picture < ActiveRecord::Base
   has_and_belongs_to_many :homes
-  has_attached_file :picture, styles: {
+  has_attached_file :picture, url: ":s3_domain_url", path: "/:class/:attachment/:id_partition/:style/:filename", styles: {
     thumb: '100x100>',
     square: '200x200#',
     medium: '300x300>'
