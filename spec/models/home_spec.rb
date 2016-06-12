@@ -21,13 +21,4 @@ RSpec.describe Home, type: :model do
     end
   end
 
-  xit "does not create duplicate home" do
-    VCR.use_cassette("model_home_no_duplicates") do
-      assert_difference ("Home.count") do
-        2.times do
-          Home.build_home(address_1: "1510 Blake Street", city: "Denver", zip: "80202")
-        end
-      end
-    end
-  end
 end
