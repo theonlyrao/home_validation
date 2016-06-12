@@ -6,5 +6,20 @@ class Picture < ActiveRecord::Base
     medium: '300x300>'
   }
 
-  validates_attachment_file_name :picture, :matches => [/png\Z/, /jpe?g\Z/]
+  validates_attachment_file_name :picture, :matches => [/png\Z/, /jpe?g\Z/, /PNG\Z/, /JPE?G\Z/]
+
+  def self.raw_picture
+    @raw_picture
+  end
+
+  def self.gps
+    @gps
+  end
+  
+  def self.no_gps?(raw_picture)
+    @raw_picture = raw_picture
+    file = @raw_picture.tempfile
+    @gps = EXIFR::JPEG.new(file).gps
+    @gps.nil?
+  end
 end

@@ -6,9 +6,16 @@ class HomesController < ApplicationController
   end
 
   def create
-    raw_picture = params[:home][:pictures_attributes]["0"][:picture]
-    validation = Creator.build(validation_params[:home], raw_picture)
-    redirect_to validation_show_path(validation.id)
+    if Home.bad_address?(validation_params[:home] || {street: "", city: "", state: "", zip: ""})
+      redirect_to validation_path
+      flash[:error] = "Please check the address."
+    elsif params[:home][:pictures_attributes].nil? || Picture.no_gps?(params[:home][:pictures_attributes]["0"][:picture])
+      redirect_to validation_path
+      flash[:error] = "Please make sure you have attached a picture with gps metadata."
+    else
+      validation = Creator.build(validation_params[:home], Picture.raw_picture)
+      redirect_to validation_show_path(validation.id)
+    end
   end
 
   private

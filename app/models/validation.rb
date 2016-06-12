@@ -12,7 +12,7 @@ class Validation < ActiveRecord::Base
     diffs = pictures.map do |picture|
       [(picture.lat.to_f - home.lat.to_f).abs, (picture.long.to_f - home.long.to_f).abs] 
     end.flatten
-    if diffs.any? { |diff| diff > 0.0005 }
+    if diffs.any? { |diff| diff > 0.001 }
       false
     else
       true
