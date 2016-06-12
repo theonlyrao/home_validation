@@ -18,7 +18,7 @@ class Home < ActiveRecord::Base
   end
 
   def self.parse_address(raw_home)
-    street = raw_home[:address_1].split.join("+") || nil
+    street = raw_home[:address].split.join("+") || nil
     city = raw_home[:city].split.join("+") || nil
     state = raw_home[:state] || nil
     zip = raw_home[:zip].split || nil

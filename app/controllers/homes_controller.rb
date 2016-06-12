@@ -21,8 +21,6 @@ class HomesController < ApplicationController
   private
 
   def validation_params
-    params.require(:home).permit(home: [:address_1, :city, :state, :zip])
-    # file = params["home"]["pictures_attributes"]["0"]["picture"].tempfile
-    # gps = EXIFR::JPEG.new(file).gps
+    params.require(:home).permit(home: [:address, :city, :state, :zip])
   end
 end

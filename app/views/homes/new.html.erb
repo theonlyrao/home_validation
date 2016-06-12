@@ -16,24 +16,27 @@
 	    <%= form_for @home do |f| %>
 		<%= f.fields_for :home do |home_form| %>
 		    <fieldset class="form-group">
-			<%= home_form.label :address_1%>
-			<%= home_form.text_field :address_1, value: "Address 1", class: "form-control"%>
+			<%= home_form.label :address %>
+			<%= home_form.text_field :address, class: "form-control"%>
 		    </fieldset>
-		    <fieldset class="form-group">		    
-			<%= home_form.label :city%>
-			<%= home_form.text_field :city, value: "City", class: "form-control"%>
-		    </fieldset>
-		    <fieldset class="form-group">
-			<%= home_form.label :state %>
-			<%= home_form.text_field :state, value: "State", class: "form-control" %>
-		    </fieldset>
-		    <fieldset class="form-group">
-			<%= home_form.label :zip %>
-			<%= home_form.text_field :zip, value: "Zip", class: "form-control" %>
-		    </fieldset>
+		    <div class="row">
+			<fieldset class="form-group col-md-4">		    
+			    <%= home_form.label :city%>
+			    <%= home_form.text_field :city, class: "form-control"%>
+			</fieldset>
+			<fieldset class="form-group col-md-2">
+			    <%= home_form.label :state %>
+			    <%= home_form.text_field :state, class: "form-control" %>
+			</fieldset>
+			<fieldset class="form-group col-md-2">
+			    <%= home_form.label :zip %>
+			    <%= home_form.text_field :zip, class: "form-control" %>
+			</fieldset>
+		    </div> <!-- row -->
 		<% end  %>
 		<%= f.fields_for :pictures do |picture_form| %>
 		<fieldset class="form-group field">
+		  <%= picture_form.label "Attach a jpeg, jpg, or png of your home:" %><br>
 		  <%= picture_form.file_field :picture %>
 		</fieldset>
 		<% end %>
