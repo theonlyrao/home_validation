@@ -37,6 +37,7 @@ gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk', '~> 2.3'
 gem "bootstrap", "~> 4.0.0.alpha3"
 gem 'exifr', :git => 'git://github.com/remvee/exifr.git'
+gem 'omniauth-facebook'
 
 group :production do
   gem "rails_12factor"

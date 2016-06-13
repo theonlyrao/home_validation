@@ -1,0 +1,18 @@
+<div class="user-show-page">
+    <div class="row">
+	<h1 class="page-title user-info text-md-center">
+	  <%= @user.name %>'s Validations
+	</h1>
+    </div> <!-- row -->
+    
+    <div class="row">
+	<div class="content-box validation-list col-md-10 col-md-offset-1">
+	    <h2>Validation List</h2>
+	    <ol>
+	    <% @user.validations.each do |validation| %>
+		<li><%= link_to "#{validation.home.address}", validation_show_path(validation.id) %> </li>
+	    <% end %>
+	    </ol>
+	</div> <!-- content-box -->
+    </div> <!-- row -->
+</div> <!-- show-page -->
