@@ -6,6 +6,8 @@ class Picture < ActiveRecord::Base
     medium: '300x300>'
   }
 
+  
+  
   validates_attachment_file_name :picture, :matches => [/png\Z/, /jpe?g\Z/, /PNG\Z/, /JPE?G\Z/]
 
   def self.raw_picture
