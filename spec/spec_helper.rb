@@ -3,6 +3,7 @@ SimpleCov.start "rails"
 
 require "vcr"
 require "capybara/rspec"
+require "omniauth"
 
 
 VCR.configure do |config|
@@ -30,6 +31,15 @@ end
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+                                                                 :provider => 'facebook',
+                                                                 :uid => '123545',
+                                                                 :info => { :name => "login_test" },
+                                                                 :credentials => { :token => "oauth_facebook_test_token",
+                                                                                   :expires_at => 99999999999 }
+                                                               })
+ 
   #config.fixture_path =  "#{::Rails.root}/spec/fixtures"
   #config.include ActionDispatch::TestProcess
   # rspec-expectations config goes here. You can use an alternate
