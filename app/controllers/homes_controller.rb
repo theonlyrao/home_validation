@@ -13,7 +13,7 @@ class HomesController < ApplicationController
       redirect_to validation_path
       flash[:error] = "Please make sure you have attached a picture with gps metadata."
     else
-      validation = Creator.build(validation_params[:home], Picture.raw_picture, current_user.id)
+      validation = Creator.build(validation_params[:home], Picture.raw_picture, current_user)
       redirect_to validation_show_path(validation.id)
     end
   end
