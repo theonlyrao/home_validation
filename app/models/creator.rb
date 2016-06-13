@@ -1,7 +1,7 @@
 module Creator
 
-  def self.build(raw_home, raw_picture, current_user_id)
-    @user_id = current_user_id
+  def self.build(raw_home, raw_picture, current_user)
+    @user = current_user
     home = self.make_home(raw_home)
     self.make_picture(home, raw_picture)
     validation = self.make_validation(home)
@@ -19,13 +19,14 @@ module Creator
   end
 
   def self.make_validation(home)
-    validation = Validation.create(home_id: home.id, user_id: @user_id)
+    if @user.nil?
+      validation = Validation.create(home_id: home.id)
+    else
+      validation = Validation.create(home_id: home.id, user_id: @user.id)
+    end
     validation.validated = validation.check_gps
     validation.save
     validation
   end
   
 end
-
-
-
