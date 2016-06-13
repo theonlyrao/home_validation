@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   post "/validate", to: "homes#create", as: :homes
 
   get "/validations/:id", to: "validations#show", as: :validation_show
+
+  get "/users/:id", to: "users#show", as: :user
+
+  get "/logout", to: "sessions#destroy", as: :logout
   #resources :validations, only: [:create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
