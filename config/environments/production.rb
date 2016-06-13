@@ -88,3 +88,6 @@ Rails.application.configure do
   }
 
 end
+
+Paperclip::Attachment.default_options[:path] = "/:class/:attachment/:id_partition/:filename"
+Paperclip::Attachment.default_options[:url] = ":s3_domain_url"
