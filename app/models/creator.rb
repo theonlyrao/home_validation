@@ -14,7 +14,8 @@ module Creator
   def self.make_picture(home, raw_picture)
     lat = Picture.gps.latitude
     long = Picture.gps.longitude
-    picture = Picture.create(picture: raw_picture, lat: lat, long: long, picture_file_name: "http://home-validation.s3.amazonaws.com/#{raw_picture.original_filename}")
+    #picture = Picture.create(picture: raw_picture, lat: lat, long: long, picture_file_name: "http://home-validation.s3.amazonaws.com/#{raw_picture.original_filename}")
+    picture = Picture.create(picture: raw_picture, lat: lat, long: long)
     picture.homes << home
   end
 
