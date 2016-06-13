@@ -4,9 +4,11 @@
 	<li class="nav-item active">
 	    <a class="nav-link" href="/validate">Validator<span class="sr-only">(current)</span></a>
 	</li>
-	<li class="nav-item">
-	    <a class="nav-link" href="#">Report Scam</a>
-	</li>
+	<% if current_user  %>
+	    <li class="nav-item">
+		<a class="nav-link" href="/users/<%= current_user.id %>" >My Dasboard</a>
+	    </li>
+	<% end %>
 	<li class="nav-item">
 	  <a class="nav-link" href="#">
 	    <% if current_user %>
