@@ -7,15 +7,18 @@ class Validation < ActiveRecord::Base
   end
 
   def check_gps
-    home = self.home
-    pictures = self.pictures
-    diffs = pictures.map do |picture|
-      [(picture.lat.to_f - home.lat.to_f).abs, (picture.long.to_f - home.long.to_f).abs] 
-    end.flatten
-    if diffs.any? { |diff| diff > 0.001 }
-      false
-    else
-      true
+    pictures.all? do |picture|
+      valid_lat?(picture) && valid_long?(picture)
     end
+  end
+
+  private
+  
+  def valid_lat?(picture)
+    (picture.lat.to_f - self.home.lat.to_f).abs < 0.001
+  end
+
+  def valid_long?(picture)
+    (picture.long.to_f - self.home.long.to_f).abs < 0.001
   end
 end
