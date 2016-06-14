@@ -7,6 +7,7 @@ class Home < ActiveRecord::Base
   accepts_nested_attributes_for :pictures
   
   def self.bad_address?(raw_home, mapping_service=GmapsService.new)
+    return true unless raw_home
     lat_and_long = mapping_service.get_mapped_info(raw_home)
     lat_and_long.values.include?(nil)
   end

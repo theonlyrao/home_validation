@@ -6,10 +6,10 @@ class HomesController < ApplicationController
   end
 
   def create
-    if Home.bad_address?(validation_params[:home] || {street: "", city: "", state: "", zip: ""})
+    if Home.bad_address?(validation_params[:home])
       redirect_to validation_path
       flash[:error] = "Please check the address."
-    elsif params[:home][:pictures_attributes].nil? || Picture.no_gps?(params[:home][:pictures_attributes]["0"][:picture])
+    elsif Picture.no_gps?(params[:home][:pictures_attributes])
       redirect_to validation_path
       flash[:error] = "Please make sure you have attached a picture with gps metadata."
     else

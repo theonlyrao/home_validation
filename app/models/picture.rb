@@ -5,8 +5,6 @@ class Picture < ActiveRecord::Base
     square: '200x200#',
     medium: '300x300>'
   }
-
-  #url: ":s3_domain_url", path: "/:class/:attachment/:id_partition/:style/:filename",
   
   validates_attachment_file_name :picture, :matches => [/png\Z/, /jpe?g\Z/, /PNG\Z/, /JPE?G\Z/]
 
@@ -18,8 +16,9 @@ class Picture < ActiveRecord::Base
     @gps
   end
   
-  def self.no_gps?(raw_picture)
-    @raw_picture = raw_picture
+  def self.no_gps?(picture_params)
+    return true unless picture_params
+    @raw_picture = picture_params["0"][:picture]
     file = @raw_picture.tempfile
     @gps = EXIFR::JPEG.new(file).gps
     @gps.nil?
