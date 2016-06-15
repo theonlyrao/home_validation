@@ -17,10 +17,10 @@ RSpec.feature "LandlordCanSeeValidations", type: :feature do
     ApplicationController.any_instance.stubs(:current_user).returns(user)
     visit user_path(user)
     
-    within (".user-info") do
+    within (".page-title") do
       expect(page).to have_content(user.name)
     end
-    within (".validation-list") do
+    within ("ol") do
       expect(page).to have_link(user_home_one.address)
       expect(page).to have_link(user_home_two.address)
       expect(page).not_to have_link(random_home.address)
