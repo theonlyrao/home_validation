@@ -1,5 +1,5 @@
 <div class="user-show-page">
-  <% cache "user-#{@user.id}-validation-#{@user.validations.last.id}" do %>
+  <% cache cache_key_for(@user) do %>
     <div class="row">
 	<div class="card card-inverse card-success text-center title-card">	
 	    <div class="card-block page-title">
