@@ -9,7 +9,7 @@ Eventually I realized that one way to detect these scam listings was by their sl
 This app builds on my intuition. By using the googls maps api and the EXIFR gem, a person listing their unit for rent can upload a photo my site (live at home-validation.herokuapp.com) along with the address of the unit. If that photo has gps metadata and was taken close to their unit, the app will validate the listing. The person can then link to the validation in order to authenticate their listing on other sites.
 
 ### Demo
-![](https://github.com/theonlyrao/home_validation/lib/assets/home_validation_demo.gif)
+![](lib/assets/home_validation_demo.gif)
 
 ### Setup Instructions
 1. clone down the repo
