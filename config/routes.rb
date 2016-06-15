@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   get "/users/:id", to: "users#show", as: :user
 
   get "/logout", to: "sessions#destroy", as: :logout
-  get 'auth/:provider/callback', to: 'sessions#create'
-  get 'auth/failure', to: redirect('/')
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/failure', to: redirect('/')
 
   #resources :validations, only: [:create]
   # The priority is based upon order of creation: first created -> highest priority.
