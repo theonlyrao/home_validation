@@ -1,4 +1,5 @@
 <div class="validation-show-page">
+  <% cache "validation-#{@validation.id}" do %>
     <div class="row">
 	<% if @validation.validated? %>
 	    <div class="card card-inverse card-success text-center title-card">	
@@ -61,5 +62,5 @@
     </div> <!-- row -->
 
 
-
+<% end %>
 </div> <!-- show-page -->
