@@ -1,4 +1,5 @@
 <div class="user-show-page">
+  <% cache "user-#{@user.id}-validation-#{@user.validations.last.id}" do %>
     <div class="row">
 	<div class="card card-inverse card-success text-center title-card">	
 	    <div class="card-block page-title">
@@ -17,5 +18,5 @@
 	    </ol>
 	</div> <!-- card -->
     </div> <!-- row -->
-
+<% end %>
 </div> <!-- user-show-page -->
