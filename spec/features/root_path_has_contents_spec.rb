@@ -5,11 +5,9 @@ RSpec.feature "RootPathHasContents", type: :feature do
     visit root_path
     expect(current_path).to eq("/")
 
-    expect(page).to have_content("Validate my listing")
-    expect(page).to have_content("Search listings")
-    expect(page).to have_content("Report scam")
+    expect(page).to have_content("Validate A Home")
 
-    click_on "Validate my listing"
+    click_on "Validate a home"
     expect(current_path).to eq("/validate")
   end
 end
