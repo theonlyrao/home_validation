@@ -10,4 +10,12 @@ RSpec.feature "UserCanLogins", type: :feature do
     end
     expect(current_path).to eq(user_path(user.id))
   end
+
+  it "does not let another user see dashboard" do
+    user = User.find_or_create_by(uid: "123545", name: "login_test", provider: "facebook", oauth_token: "oauth_facebook_test_token", oauth_expires_at: Time.at(99999999999))
+    visit user_path(user.id)
+
+    expect(current_path).to eq(root_path)
+    expect(page).not_to have_content(user.name)
+  end
 end

@@ -21,20 +21,8 @@
 }
 
 .page-title {
-    height: 75px;
-    padding-top: 13px;
-    border: 1px solid black;
-    background-color: gray;
     color: white;
     margin-top: 10px;
-}
-
-.validated {
-    color: green;
-}
-
-.not-validated {
-    color: red;
 }
 
 .content-box {
@@ -46,4 +34,8 @@
 .address-form {
     height: 400px;
     padding: 10px;
+}
+
+.title-card {
+    margin-top: 10px;
 }

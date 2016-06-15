@@ -1,18 +1,21 @@
 <div class="user-show-page">
     <div class="row">
-	<h1 class="page-title user-info text-md-center">
-	  <%= @user.name %>'s Validations
-	</h1>
+	<div class="card card-inverse card-success text-center title-card">	
+	    <div class="card-block page-title">
+		<h1><%= @user.name %>'s Validations</h1>
+	    </div> <!-- page-title -->
+	</div> <!-- validation -->
     </div> <!-- row -->
-    
+
     <div class="row">
-	<div class="content-box validation-list col-md-10 col-md-offset-1">
-	    <h2>Validation List</h2>
-	    <ol>
-	    <% @user.validations.each do |validation| %>
-		<li><%= link_to "#{validation.home.address}", validation_show_path(validation.id) %> </li>
-	    <% end %>
+	<div class="card col-md-12">
+	    <h4 class="card-title">Your Validations</h4>
+	    <ol class="card-text">
+		<% @user.validations.each do |validation| %>
+		    <li><%= link_to "#{validation.home.address}", validation_show_path(validation.id) %> </li>
+		<% end %>
 	    </ol>
-	</div> <!-- content-box -->
+	</div> <!-- card -->
     </div> <!-- row -->
-</div> <!-- show-page -->
+
+</div> <!-- user-show-page -->
