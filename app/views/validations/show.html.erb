@@ -1,13 +1,30 @@
 <div class="validation-show-page">
     <div class="row">
-	<h1 class="page-title text-md-center">
-	    <% if @validation.validated? %>
-		<div class="validated">Home Validated</div>
-	    <% else %>
-		<div class="not-validated">Home Not Valid</div>
-	    <% end %>
-	</h1>
+	<% if @validation.validated? %>
+	    <div class="card card-inverse card-success text-center">	
+		<div class="card-block page-title">
+		    <h1 class="validated">Home Validated</h1>
+		</div> <!-- page-title -->
+	    </div> <!-- validated-card -->
+	<% else %>
+	    <div class="card card-inverse card-danger text-center">	
+		<div class="card-block page-title">
+		    <h1 class="not-validated">Home Not Valid</h1>
+		</div> <!-- page-title -->
+	    </div> <!-- not-valid-card -->
+	<% end %>
     </div> <!-- row -->
+
+    <div class="row">
+	<div class="card card-inverse card-info col-md-12">
+	    <div class="card-block">
+		<p class="card-text">
+		    We compared the gps metadata against the address provided. A home is validated only if the gps metadata indicates that the picture was taken within about 300 feet of the address.
+		</p>
+	    </div>
+	</div>
+    </div>
+
     
     <div class="row">
 	<div class="content-box-container">
